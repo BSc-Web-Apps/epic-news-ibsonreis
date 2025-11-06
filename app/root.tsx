@@ -5,8 +5,7 @@ import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
-import portrait1 from '~/assets/jpg/portrait-01.jpg'
-import portrait2 from '~/assets/svg/icon-placeholder.svg'
+import Card from '~/components/organisms/card.tsx'
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
@@ -24,26 +23,10 @@ export default function App() {
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega">Your Journey Begins!</h1>
-						<div className="flex flex-col items-center rounded-lg bg-gray-600 p-10">
-							<img
-								className="mb-5 w-50 rounded-full"
-								src={portrait1}
-								alt="portrait"
-							/>
-							<h1 className="font-bold">Leonard Kraser</h1>
-							<p>Senior Designer</p>
-							<div className="flex items-center">
-								<img
-									className="m-5 w-10 rounded-full"
-									src={portrait2}
-									alt="portrait"
-								/>
-								<img
-									className="m-5 w-10 rounded-full"
-									src={portrait2}
-									alt="portrait"
-								/>
-							</div>
+						<div className="m-2 flex items-center">
+							<Card />
+							<Card />
+							<Card />
 						</div>
 						<p className="text-base text-pink-300 md:text-lg md:text-pink-400 lg:text-xl">
 							Welcome to Epic News, where the latest developments in tech are
