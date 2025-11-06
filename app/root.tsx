@@ -34,12 +34,12 @@ export default function App() {
 							<p>Senior Designer</p>
 							<div className="flex items-center">
 								<img
-									className="mb-5 w-10 rounded-full"
+									className="m-5 w-10 rounded-full"
 									src={portrait2}
 									alt="portrait"
 								/>
 								<img
-									className="mb-5 w-10 rounded-full"
+									className="m-5 w-10 rounded-full"
 									src={portrait2}
 									alt="portrait"
 								/>
