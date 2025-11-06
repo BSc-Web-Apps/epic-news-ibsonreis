@@ -26,7 +26,7 @@ export default function App() {
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega">Your Journey Begins!</h1>
-						<div className="m-2 flex items-center">
+						<div className="m-2 flex items-center justify-between">
 							<Card
 								img={portrait1}
 								name="Leonard Krasner"
@@ -43,7 +43,7 @@ export default function App() {
 								role="VP, User Experiance"
 							/>
 						</div>
-						<p className="text-base text-pink-300 md:text-lg md:text-pink-400 lg:text-xl">
+						<p className="m-5 text-base text-pink-300 md:text-lg md:text-pink-400 lg:text-xl">
 							Welcome to Epic News, where the latest developments in tech are
 							found.
 						</p>
