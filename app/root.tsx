@@ -5,10 +5,10 @@ import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
-import Card from '~/components/organisms/card.tsx'
 import portrait1 from '~/assets/jpg/portrait-01.jpg'
 import portrait2 from '~/assets/jpg/portrait-03.jpg'
 import portrait3 from '~/assets/jpg/portrait-04.jpg'
+import Card from '~/components/organisms/card.tsx'
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
@@ -47,7 +47,7 @@ export default function App() {
 							Welcome to Epic News, where the latest developments in tech are
 							found.
 						</p>
-						<button className="cursor: pointer rounded-lg bg-blue-600 p-5 shadow-md hover:bg-blue-700 md:p-5 lg:p-10">
+						<button className="cursor: pointer rounded-lg bg-blue-600 p-4.5 shadow-md hover:bg-blue-700 md:p-5 lg:p-10">
 							Press Me!
 						</button>
 					</main>
