@@ -8,7 +8,7 @@ interface CardProps {
 
 export default function Card({ img, name, role }: CardProps) {
 	return (
-		<div className="m-2 flex flex-col items-center rounded-xl bg-gray-800 p-10 px-17 sm:grid-cols-1">
+		<div className="m-2 flex flex-col items-center rounded-xl bg-gray-800 p-10 px-17">
 			<img
 				className="mb-5 w-50 rounded-full shadow-2xl"
 				src={img}
