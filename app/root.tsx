@@ -26,7 +26,7 @@ export default function App() {
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega">Your Journey Begins!</h1>
-						<div className="m-2 flex items-center justify-between">
+						<div className="m-2 flex items-center justify-between sm:flex-col md:flex-row">
 							<Card
 								img={portrait1}
 								name="Leonard Krasner"
