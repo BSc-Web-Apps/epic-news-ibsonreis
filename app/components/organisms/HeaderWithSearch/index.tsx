@@ -3,6 +3,7 @@ import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
+import logo from '~/assets/svg/icon-placeholder.svg'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
@@ -13,6 +14,9 @@ export default function HeaderWithSearch() {
 	return (
 		<header className="m-1 py-0.5">
 			<nav className="bg-secondary flex flex-wrap items-center justify-between gap-4 p-10 sm:flex-nowrap md:gap-8">
+				<div>
+					<img className="w-20" src={logo} alt="" />
+				</div>
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 					{searchBar}
 				</div>
