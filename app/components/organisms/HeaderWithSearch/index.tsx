@@ -11,8 +11,8 @@ export default function HeaderWithSearch() {
 	const user = useOptionalUser()
 
 	return (
-		<header className="container py-6">
-			<nav className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
+		<header className="m-1 py-0.5">
+			<nav className="bg-secondary flex flex-wrap items-center justify-between gap-4 p-10 sm:flex-nowrap md:gap-8">
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 					{searchBar}
 				</div>
