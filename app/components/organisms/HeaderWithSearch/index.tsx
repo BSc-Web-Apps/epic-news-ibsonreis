@@ -3,7 +3,7 @@ import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
-import logo from '~/assets/png/logo.png'
+import logo from '~/assets/png/epic-news-logo.png'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
@@ -13,7 +13,30 @@ export default function HeaderWithSearch() {
 
 	return (
 		<header className="m-1 py-0.5">
-			<nav className="flex flex-wrap items-center justify-between gap-4 border-b-2 p-10 sm:flex-nowrap md:gap-8">
+			<nav className="flex flex-wrap items-center justify-between border-b-1 p-10 sm:flex-nowrap md:gap-8">
+				<div className="flex items-center gap-10">
+					{user ? (
+						<UserDropdown />
+					) : (
+						<Button asChild variant="default" size="lg">
+							<Link to="/">nav link</Link>
+						</Button>
+					)}
+					{user ? (
+						<UserDropdown />
+					) : (
+						<Button asChild variant="default" size="lg">
+							<Link to="/">nav link</Link>
+						</Button>
+					)}
+					{user ? (
+						<UserDropdown />
+					) : (
+						<Button asChild variant="default" size="lg">
+							<Link to="/">nav link</Link>
+						</Button>
+					)}
+				</div>
 				<div>
 					<img className="w-20" src={logo} alt="" />
 				</div>
