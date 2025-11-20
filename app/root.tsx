@@ -14,6 +14,7 @@ import rootLinkElements from './utils/providers/rootLinkElements.ts'
 import portrait1 from '~/assets/jpg/portrait-01.jpg'
 import portrait2 from '~/assets/jpg/portrait-03.jpg'
 import portrait3 from '~/assets/jpg/portrait-04.jpg'
+import hero from '~/assets/jpg/sample-hero.jpg'
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
@@ -32,9 +33,12 @@ export default function App() {
 			<div className="flex h-screen flex-col justify-between">
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
-						<h1 className="text-mega m-10">Meet the team!</h1>
-						<div>
-							<HeroCallToAction image="https://www.helpguide.org/wp-content/uploads/2020/01/Social-Media-and-Mental-Health.webp">
+						<div className="w-full py-16">
+							<HeroCallToAction
+								image={hero}
+								hasBackgroundColour={true}
+								imageRight={true}
+							>
 								<div className="flex flex-col gap-8 px-8">
 									<h2 className="text-h2">Welcome to Epic News</h2>
 									<p className="text-lg">
@@ -43,6 +47,7 @@ export default function App() {
 								</div>
 							</HeroCallToAction>
 						</div>
+						<h1 className="text-mega m-10">Meet the team!</h1>
 						<div className="m-4 flex items-center justify-between gap-4 sm:flex-col md:flex-row">
 							<Card
 								img={portrait1}
