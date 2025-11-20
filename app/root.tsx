@@ -6,6 +6,7 @@ import Buttons from './components/atoms/Buttons.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch/index.tsx'
+import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { ThemeSwitch, useTheme } from './routes/resources+/theme-switch.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
@@ -32,6 +33,16 @@ export default function App() {
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega m-10">Meet the team!</h1>
+						<div>
+							<HeroCallToAction image="https://www.helpguide.org/wp-content/uploads/2020/01/Social-Media-and-Mental-Health.webp">
+								<div className="flex flex-col gap-8 px-8">
+									<h2 className="text-h2">Welcome to Epic News</h2>
+									<p className="text-lg">
+										Keep up to date with the latest tech news.
+									</p>
+								</div>
+							</HeroCallToAction>
+						</div>
 						<div className="m-4 flex items-center justify-between gap-4 sm:flex-col md:flex-row">
 							<Card
 								img={portrait1}
