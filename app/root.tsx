@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router'
 import Card from '#app/components/organisms/Cards/card.tsx'
 import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
+import Buttons from './components/atoms/Buttons.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch/index.tsx'
@@ -52,9 +53,7 @@ export default function App() {
 							Welcome to Epic News, where the latest developments in tech are
 							found.
 						</p>
-						<button className="cursor: pointer rounded-lg bg-blue-600 p-4.5 shadow-md hover:bg-blue-700 md:p-5 lg:p-10">
-							Press Me!
-						</button>
+						<Buttons />
 					</main>
 				</div>
 				<div className="container flex justify-between pb-5">

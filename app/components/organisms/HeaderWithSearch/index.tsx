@@ -13,7 +13,7 @@ export default function HeaderWithSearch() {
 
 	return (
 		<header className="m-1 py-0.5">
-			<nav className="bg-secondary flex flex-wrap items-center justify-between gap-4 p-10 sm:flex-nowrap md:gap-8">
+			<nav className="flex flex-wrap items-center justify-between gap-4 border-b-2 p-10 sm:flex-nowrap md:gap-8">
 				<div>
 					<img className="w-20" src={logo} alt="" />
 				</div>
