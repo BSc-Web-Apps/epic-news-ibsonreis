@@ -24,9 +24,14 @@ const HeroCallToAction = ({
 					className="absolute min-h-full min-w-full object-cover object-center"
 				/>
 			</div>
-			<div className="relative flex h-96 items-center justify-center md:h-[32rem] md:w-1/2">
+			<div
+				className={`relative flex h-96 items-center justify-center md:h-[32rem] md:w-1/2 ${
+					hasBackgroundColour && 'bg-green-900'
+				}`}
+			>
 				{children}
 			</div>
+			<div></div>
 		</div>
 	)
 }
