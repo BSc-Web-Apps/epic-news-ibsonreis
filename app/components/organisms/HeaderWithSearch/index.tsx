@@ -5,7 +5,7 @@ import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
 
-import logo from '~/assets/png/epic-news-logo-brown-dark.png'
+import logo from '~/assets/png/epic-news-logo-green-dark.png'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
@@ -31,7 +31,7 @@ export default function HeaderWithSearch() {
 
 				{/* logo */}
 				<div className="flex items-center gap-4">
-					<Link to="/" className="flex w-30 items-center justify-center">
+					<Link to="/" className="flex w-40 items-center justify-center">
 						<img src={logo} alt="Epic News Logo" />
 					</Link>
 				</div>
