@@ -14,7 +14,7 @@ export default function Card({ img, name, role }: CardProps) {
 				src={img}
 				alt="portrait"
 			/>
-			<h1 className="text-body-sm mt-1 mb-1 font-bold">{name}</h1>
+			<h1 className="text-body-sm mt-1 mb-1 font-bold text-white">{name}</h1>
 			<p className="font-light text-gray-400">{role}</p>
 			<div className="mt-7.5 flex items-center">
 				<ShareButtons />

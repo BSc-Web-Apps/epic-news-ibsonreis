@@ -29,9 +29,9 @@ export default function App() {
 
 	return (
 		<Document theme={theme} nonce={nonce} honeyProps={data?.honeyProps}>
-			<HeaderWithSearch />
 			<div className="flex h-screen flex-col justify-between">
 				<div className="flex-1">
+					<HeaderWithSearch />
 					<main className="grid h-full place-items-center">
 						<div className="w-full py-16">
 							<HeroCallToAction
