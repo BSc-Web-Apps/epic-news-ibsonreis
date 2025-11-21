@@ -29,11 +29,15 @@ export default function App() {
 
 	return (
 		<Document theme={theme} nonce={nonce} honeyProps={data?.honeyProps}>
-			<div className="flex h-screen flex-col justify-between">
+			<div className="flex flex-col justify-between">
 				<div className="flex-1">
 					<HeaderWithSearch />
+
 					<main className="grid h-full place-items-center">
-						<div className="w-full py-16">
+						<div className="m-5 flex flex-col items-center justify-center rounded border-2">
+							<ThemeSwitch userPreference={data?.requestInfo.userPrefs.theme} />
+						</div>
+						<div className="w-full">
 							<HeroCallToAction
 								image={hero}
 								hasBackgroundColour={true}
@@ -72,9 +76,7 @@ export default function App() {
 						<Buttons />
 					</main>
 				</div>
-				<div className="container flex justify-between pb-5">
-					<ThemeSwitch userPreference={data?.requestInfo.userPrefs.theme} />
-				</div>
+				<div className="container flex justify-between pb-5"></div>
 				<FooterLogoCentre />
 			</div>
 		</Document>

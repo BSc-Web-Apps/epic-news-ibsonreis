@@ -1,8 +1,10 @@
 import { useMatches, Link, NavLink } from 'react-router'
+
 import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
+
 import logo from '~/assets/png/epic-news-logo-brown-dark.png'
 
 export default function HeaderWithSearch() {
@@ -16,13 +18,13 @@ export default function HeaderWithSearch() {
 			<nav className="flex items-center justify-between border-b-1 p-10 sm:flex-nowrap md:gap-8">
 				{/* nav link divs */}
 				<div className="text-secondary-foreground dark:text-dark-secondary-foreground mr-auto flex flex-col items-start gap-10 py-8 font-bold lg:flex-row">
-					<div className="lg:p-3">
+					<div className="lg:p-3.25">
 						<NavLink to="#">Nav Label</NavLink>
 					</div>
-					<div className="lg:p-3">
+					<div className="lg:p-3.25">
 						<NavLink to="#">Nav Label</NavLink>
 					</div>
-					<div className="lg:p-3">
+					<div className="lg:p-3.25">
 						<NavLink to="#">Nav Label</NavLink>
 					</div>
 				</div>
@@ -61,7 +63,7 @@ export default function HeaderWithSearch() {
 								size="lg"
 								className="mt-4 w-full"
 							>
-								<Link to="/Sign Up">Sign Up</Link>
+								<Link to="/login">Sign Up</Link>
 							</Button>
 						)}
 					</div>
