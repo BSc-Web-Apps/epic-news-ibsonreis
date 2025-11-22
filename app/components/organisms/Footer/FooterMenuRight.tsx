@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router'
-import logo from '#app/assets/svg/icon-placeholder.svg'
+import logo from '#app/assets/png/epic-news-logo-green-dark.png'
 import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
 import { Button } from '#app/components/ui/button.tsx'
 import { type FooterProps } from './FooterBasic'
