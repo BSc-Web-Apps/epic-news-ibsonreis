@@ -5,7 +5,8 @@ import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
 
-import logo from '~/assets/png/epic-news-logo-green-dark.png'
+import logoD from '~/assets/png/epic-news-logo-green-dark.png'
+import logoL from '~/assets/png/epic-news-logo-green-light.png'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
@@ -15,7 +16,7 @@ export default function HeaderWithSearch() {
 
 	return (
 		<header className="m-1 py-0.5">
-			<nav className="flex items-center justify-between border-b-1 p-10 sm:flex-nowrap md:gap-8">
+			<nav className="bg-secondary flex items-center justify-between p-10 sm:flex-nowrap md:gap-8">
 				{/* nav link divs */}
 				<div className="text-secondary-foreground dark:text-dark-secondary-foreground mr-auto flex flex-col items-start gap-10 py-8 font-bold lg:flex-row">
 					<div className="lg:p-3.25">
@@ -30,9 +31,15 @@ export default function HeaderWithSearch() {
 				</div>
 
 				{/* logo */}
-				<div className="flex items-center gap-4">
+				<div className="hidden items-center gap-1 dark:block">
 					<Link to="/" className="flex w-40 items-center justify-center">
-						<img src={logo} alt="Epic News Logo" />
+						<img src={logoD} alt="Epic News Logo" />
+					</Link>
+				</div>
+
+				<div className="block items-center gap-4 dark:hidden">
+					<Link to="/" className="flex w-40 items-center justify-center">
+						<img src={logoL} alt="Epic News Logo" />
 					</Link>
 				</div>
 

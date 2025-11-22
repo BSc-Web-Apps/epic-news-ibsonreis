@@ -4,8 +4,8 @@ import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
 import Buttons from './components/atoms/Buttons.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
-import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
-import HeaderWithSearch from './components/organisms/HeaderWithSearch/index.tsx'
+import FooterMenuRight from './components/organisms/Footer/FooterMenuRight.tsx'
+import HeaderWithSearch from './components/organisms/HeaderWithSearch/HeaderWithSearch.tsx'
 import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { ThemeSwitch, useTheme } from './routes/resources+/theme-switch.tsx'
@@ -69,7 +69,7 @@ export default function App() {
 								role="VP, User Experiance"
 							/>
 						</div>
-						<p className="m-5 text-base text-pink-300 md:text-lg md:text-pink-400 lg:text-xl">
+						<p className="m-5 text-base lg:text-xl">
 							Welcome to Epic News, where the latest developments in tech are
 							found.
 						</p>
@@ -77,7 +77,8 @@ export default function App() {
 					</main>
 				</div>
 				<div className="container flex justify-between pb-5"></div>
-				<FooterLogoCentre />
+
+				<FooterMenuRight />
 			</div>
 		</Document>
 	)
