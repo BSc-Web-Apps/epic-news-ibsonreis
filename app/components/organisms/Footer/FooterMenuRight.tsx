@@ -1,5 +1,7 @@
 import { Link, NavLink } from 'react-router'
-import logo from '#app/assets/png/epic-news-logo-green-dark.png'
+import logoD from '#app/assets/png/epic-news-logo-brown-dark.png'
+import logoL from '#app/assets/png/epic-news-logo-brown-light.png'
+
 import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
 import { Button } from '#app/components/ui/button.tsx'
 import { type FooterProps } from './FooterBasic'
@@ -11,8 +13,17 @@ const FooterMenuRight = ({
 	return (
 		<footer className="bg-secondary dark:bg-dark-secondary lg:py-16">
 			<div className="border-muted-foreground/75 dark:border-dark-muted-foreground/75 container items-center justify-between border-b py-8 lg:flex">
-				<Link to="/" className="flex w-20 items-center justify-center lg:w-24">
-					<img src={logo} alt={altText} />
+				<Link
+					to="/"
+					className="block w-20 items-center justify-center gap-4 lg:w-24 dark:hidden"
+				>
+					<img src={logoL} alt={altText} />
+				</Link>
+				<Link
+					to="/"
+					className="hidden w-20 items-center justify-center lg:w-24 dark:block"
+				>
+					<img src={logoD} alt={altText} />
 				</Link>
 
 				<div className="lg:flex">
