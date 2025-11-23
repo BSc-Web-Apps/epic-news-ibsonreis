@@ -5,8 +5,8 @@ import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
 
-import logoD from '~/assets/png/epic-news-logo-green-dark.png'
-import logoL from '~/assets/png/epic-news-logo-green-light.png'
+import logoD from '~/assets/png/epic-news-logo-brown-dark.png'
+import logoL from '~/assets/png/epic-news-logo-brown-light.png'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
