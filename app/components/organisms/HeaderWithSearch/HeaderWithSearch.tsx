@@ -1,4 +1,4 @@
-import { useMatches, Link } from 'react-router'
+import { useMatches, NavLink, Link } from 'react-router'
 
 import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
@@ -20,33 +20,33 @@ export default function HeaderWithSearch() {
 				{/* nav link divs */}
 				<div className="text-secondary-foreground dark:text-dark-secondary-foreground mr-auto flex flex-col items-start gap-10 py-8 font-bold lg:flex-row">
 					<div className="lg:p-3.25">
-						<Link to="/about-us" prefetch="intent">
+						<NavLink to="/about-us" prefetch="intent">
 							About Us
-						</Link>
+						</NavLink>
 					</div>
 					<div className="lg:p-3.25">
-						<Link to="/contact-us" prefetch="intent">
+						<NavLink to="/contact-us" prefetch="intent">
 							Contact Us
-						</Link>
+						</NavLink>
 					</div>
 					<div className="lg:p-3.25">
-						<Link to="/news" prefetch="intent">
+						<NavLink to="/news" prefetch="intent">
 							News
-						</Link>
+						</NavLink>
 					</div>
 				</div>
 
 				{/* logo */}
 				<div className="hidden items-center gap-1 dark:block">
-					<Link to="/" className="flex w-40 items-center justify-center">
+					<NavLink to="/" className="flex w-40 items-center justify-center">
 						<img src={logoD} alt="Epic News Logo" />
-					</Link>
+					</NavLink>
 				</div>
 
 				<div className="block items-center gap-4 dark:hidden">
-					<Link to="/" className="flex w-40 items-center justify-center">
+					<NavLink to="/" className="flex w-40 items-center justify-center">
 						<img src={logoL} alt="Epic News Logo" />
-					</Link>
+					</NavLink>
 				</div>
 
 				{/* search bar */}
