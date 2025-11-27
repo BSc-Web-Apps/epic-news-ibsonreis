@@ -1,4 +1,4 @@
-import { useMatches, Link, NavLink } from 'react-router'
+import { useMatches, Link } from 'react-router'
 
 import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
@@ -20,13 +20,19 @@ export default function HeaderWithSearch() {
 				{/* nav link divs */}
 				<div className="text-secondary-foreground dark:text-dark-secondary-foreground mr-auto flex flex-col items-start gap-10 py-8 font-bold lg:flex-row">
 					<div className="lg:p-3.25">
-						<NavLink to="#">Nav Label</NavLink>
+						<Link to="/about-us" prefetch="intent">
+							About Us
+						</Link>
 					</div>
 					<div className="lg:p-3.25">
-						<NavLink to="#">Nav Label</NavLink>
+						<Link to="/contact-us" prefetch="intent">
+							Contact Us
+						</Link>
 					</div>
 					<div className="lg:p-3.25">
-						<NavLink to="#">Nav Label</NavLink>
+						<Link to="/news" prefetch="intent">
+							News
+						</Link>
 					</div>
 				</div>
 
@@ -70,7 +76,7 @@ export default function HeaderWithSearch() {
 								size="lg"
 								className="mt-4 w-full"
 							>
-								<Link to="/login">Sign Up</Link>
+								<Link to="/signup">Sign Up</Link>
 							</Button>
 						)}
 					</div>
