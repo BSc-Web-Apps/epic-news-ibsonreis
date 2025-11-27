@@ -4,7 +4,7 @@ import portrait1 from '~/assets/jpg/portrait-01.jpg'
 import portrait2 from '~/assets/jpg/portrait-03.jpg'
 import portrait3 from '~/assets/jpg/portrait-04.jpg'
 //components
-import hero from '~/assets/jpg/sample-hero.jpg'
+import hero from '~/assets/jpg/sample-hero-two.jpg'
 import Buttons from '~/components/atoms/Buttons.tsx'
 import Card from '~/components/organisms/Cards/card.tsx'
 import HeroCallToAction from '~/components/organisms/Hero/HeroCallToAction.tsx'

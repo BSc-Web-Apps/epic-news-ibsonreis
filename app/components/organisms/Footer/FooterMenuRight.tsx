@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router'
-import logoD from '#app/assets/png/epic-news-logo-brown-dark.png'
-import logoL from '#app/assets/png/epic-news-logo-brown-light.png'
+import logoD from '#app/assets/png/epic-news-logo-green-dark.png'
+import logoL from '#app/assets/png/epic-news-logo-green-light.png'
 
 import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
 import { Button } from '#app/components/ui/button.tsx'
