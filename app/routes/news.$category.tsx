@@ -22,15 +22,15 @@ export default function NewsCategoryPage() {
 	const { categoryTitle } = useLoaderData<typeof loader>()
 	return (
 		<div className="container py-16">
-			<h2 className="text-h2 mb-7">{categoryTitle}</h2>
-			<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+			<h2 className="text-h2 mb-15">{categoryTitle}</h2>
+			<div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />
 			</div>
-			<div className="mt-5 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+			<div className="mt-5 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />

@@ -7,7 +7,7 @@ import { Button } from '#app/components/ui/button.tsx'
 import { type FooterProps } from './FooterBasic'
 
 const FooterMenuRight = ({
-	companyName = 'CHANGE THIS TO YOUR COMPANY NAME!',
+	companyName = 'Epic News',
 	altText = 'Our company logo',
 }: FooterProps) => {
 	return (
@@ -29,13 +29,13 @@ const FooterMenuRight = ({
 				<div className="lg:flex">
 					<div className="text-secondary-foreground dark:text-dark-secondary-foreground flex items-start gap-6 py-8 font-bold lg:mr-24">
 						<div>
+							<NavLink to="news">News</NavLink>
+						</div>
+						<div>
 							<NavLink to="/about-us">About Us</NavLink>
 						</div>
 						<div>
 							<NavLink to="contact-us">Contact Us</NavLink>
-						</div>
-						<div>
-							<NavLink to="news">News</NavLink>
 						</div>
 					</div>
 

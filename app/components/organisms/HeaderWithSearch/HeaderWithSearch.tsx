@@ -37,14 +37,20 @@ export default function HeaderWithSearch() {
 				</div>
 
 				{/* logo */}
-				<div className="mx-auto hidden items-center gap-1 dark:block">
-					<NavLink to="/" className="flex w-40 items-center justify-center">
+				<div className="hidden items-center gap-1 dark:block">
+					<NavLink
+						to="/"
+						className="flex w-40 items-center justify-center sm:items-end"
+					>
 						<img src={logoD} alt="Epic News Logo" />
 					</NavLink>
 				</div>
 
-				<div className="mx-auto block items-center gap-4 dark:hidden">
-					<NavLink to="/" className="flex w-40 items-center justify-center">
+				<div className="block items-center gap-4 dark:hidden">
+					<NavLink
+						to="/"
+						className="flex w-40 items-center justify-center sm:items-end"
+					>
 						<img src={logoL} alt="Epic News Logo" />
 					</NavLink>
 				</div>
@@ -64,7 +70,7 @@ export default function HeaderWithSearch() {
 								size="lg"
 								className="mt-4 w-full"
 							>
-								<Link to="/login">Log In</Link>
+								<Link to="/signup">Sign Up</Link>
 							</Button>
 						)}
 						{user ? (
@@ -76,7 +82,7 @@ export default function HeaderWithSearch() {
 								size="lg"
 								className="mt-4 w-full"
 							>
-								<Link to="/signup">Sign Up</Link>
+								<Link to="/login">Log In</Link>
 							</Button>
 						)}
 					</div>
