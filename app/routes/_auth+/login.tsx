@@ -4,6 +4,7 @@ import { type SEOHandle } from '@nasa-gcn/remix-seo'
 import { startAuthentication } from '@simplewebauthn/browser'
 import { useOptimistic, useState, useTransition } from 'react'
 import { data, Form, Link, useNavigate, useSearchParams } from 'react-router'
+import { CSRFError } from 'remix-utils/csrf/server'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
@@ -18,9 +19,15 @@ import {
 } from '#app/utils/connections.tsx'
 import { checkHoneypot } from '#app/utils/honeypot.server.ts'
 import { getErrorMessage, useIsPending } from '#app/utils/misc.tsx'
+import {
+	createToastHeaders,
+	redirectWithToast,
+} from '#app/utils/toast.server.ts'
 import { PasswordSchema, UsernameSchema } from '#app/utils/user-validation.ts'
 import { type Route } from './+types/login.ts'
 import { handleNewSession } from './login.server.ts'
+import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
+import { csrf } from '~/utils/csrf.server'
 
 export const handle: SEOHandle = {
 	getSitemapEntries: () => null,
@@ -43,6 +50,20 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export async function action({ request }: Route.ActionArgs) {
+	try {
+		await csrf.validate(request)
+	} catch (error) {
+		if (error instanceof CSRFError) {
+			return redirectWithToast(`/`, {
+				description: 'CSRF token is invalid. Please try again in a new window',
+				type: 'error',
+			})
+		}
+		return redirectWithToast(`/`, {
+			description: 'Something went wrong. Please try again in a new window',
+			type: 'error',
+		})
+	}
 	await requireAnonymous(request)
 	const formData = await request.formData()
 	await checkHoneypot(formData)
