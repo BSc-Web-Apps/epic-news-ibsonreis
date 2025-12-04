@@ -104,6 +104,25 @@ export function ArticleEditor({
 					{article ? (
 						<input type="hidden" name="id" value={article.id} />
 					) : null}
+					{categories?.length ? (
+						//categories
+						<div className="">
+							<div className="pb-3">
+								<Label>Category</Label>
+							</div>
+							<div className="flex flex-row items-start justify-start">
+								<SelectorGroup
+									name="categoryId"
+									initialValue={article?.category?.id ?? ''}
+									options={categories.map((category) => ({
+										value: category.id,
+										label: category.name,
+									}))}
+								/>
+							</div>
+						</div>
+					) : null}
+
 					<div className="flex flex-col gap-1">
 						<Field
 							labelProps={{ children: 'Title' }}
@@ -120,22 +139,12 @@ export function ArticleEditor({
 							}}
 							errors={fields.content.errors}
 						/>
-						{categories?.length ? (
-							<div className="pb-8">
-								<Label>Category</Label>
-								<SelectorGroup
-									name="categoryId"
-									initialValue={article?.category?.id ?? ''}
-									options={categories.map((category) => ({
-										value: category.id,
-										label: category.name,
-									}))}
-								/>
-							</div>
-						) : null}
 						<div>
-							<Label>Images</Label>
-							<ul className="flex flex-col gap-4">
+							<div className="ml-9 pb-3">
+								<Label>Images</Label>
+							</div>
+
+							<ul className="flex flex-col">
 								{imageList.map((imageMeta, index) => {
 									const imageMetaId = imageMeta.getFieldset().id.value
 									const image = article?.images.find(
@@ -144,7 +153,7 @@ export function ArticleEditor({
 									return (
 										<li
 											key={imageMeta.key}
-											className="border-muted-foreground relative border-b-2"
+											className="border-muted-foreground relative border-b-1"
 										>
 											<button
 												className="text-foreground-destructive absolute top-0 right-0"
@@ -287,7 +296,9 @@ function ImageChooser({
 					</div>
 				</div>
 				<div className="flex-1">
-					<Label htmlFor={fields.altText.id}>Alt Text</Label>
+					<div className="pb-3">
+						<Label htmlFor={fields.altText.id}>Alt Text</Label>
+					</div>
 					<Textarea
 						onChange={(e) => setAltText(e.currentTarget.value)}
 						{...getTextareaProps(fields.altText)}

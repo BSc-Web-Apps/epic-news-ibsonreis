@@ -33,12 +33,12 @@ export default function ArticlesRoute({ loaderData }: Route.ComponentProps) {
 		'line-clamp-2 block rounded-l-full py-2 pl-8 pr-6 text-base lg:text-xl'
 	return (
 		<main className="container flex min-h-[800px] flex-1 px-0 pb-12 md:px-8">
-			<div className="bg-muted grid w-full grid-cols-4 pl-2 md:container md:rounded-3xl md:pr-0">
+			<div className="bg-primary dark:bg-popover grid w-full grid-cols-4 md:container md:rounded-3xl md:pr-0">
 				<div className="relative col-span-1">
-					<div className="absolute inset-0 flex flex-col">
+					<div className="bg-secondary absolute inset-0 flex flex-col">
 						<Link
 							to={`/users/${loaderData.owner.username}`}
-							className="bg-muted flex flex-col items-center justify-center gap-2 pt-12 pr-4 pb-4 pl-8 xl:flex-row xl:justify-start xl:gap-4"
+							className="bg-secondary flex flex-col items-center justify-center gap-2 pt-12 pb-4 xl:justify-start xl:gap-4"
 						>
 							<Img
 								src={getUserImgSrc(loaderData.owner.image?.objectKey)}
@@ -71,7 +71,7 @@ export default function ArticlesRoute({ loaderData }: Route.ComponentProps) {
 										preventScrollReset
 										prefetch="intent"
 										className={({ isActive }) =>
-											cn(navLinkDefaultClassName, isActive && 'bg-accent')
+											cn(navLinkDefaultClassName, isActive && 'bg-secondary')
 										}
 									>
 										{article.title}

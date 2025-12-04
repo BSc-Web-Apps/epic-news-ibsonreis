@@ -60,31 +60,17 @@ export default function HeaderWithSearch() {
 					{searchBar}
 
 					{/* buttons (login / sign up) */}
-					<div className="flex items-center gap-5">
+					<div className="flex items-center justify-between gap-5">
 						{user ? (
 							<UserDropdown />
 						) : (
-							<Button
-								asChild
-								variant="default"
-								size="lg"
-								className="mt-4 w-full"
-							>
-								<Link to="/signup">Sign Up</Link>
-							</Button>
-						)}
-						{user ? (
-							<UserDropdown />
-						) : (
-							<Button
-								asChild
-								variant="default"
-								size="lg"
-								className="mt-4 w-full"
-							>
+							<Button asChild variant="default" size="lg" className="mt-4 w-50">
 								<Link to="/login">Log In</Link>
 							</Button>
 						)}
+						<Button asChild variant="default" size="lg" className="mt-4 w-50">
+							<Link to="/signup">Sign Up</Link>
+						</Button>
 					</div>
 					<div className="block w-full sm:hidden">{searchBar}</div>
 				</div>
