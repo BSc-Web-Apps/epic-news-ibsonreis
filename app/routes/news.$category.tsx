@@ -2,6 +2,8 @@ import { invariant } from '@epic-web/invariant'
 import { type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
 import { toTitleCase } from '~/utils/stringUtils.ts'
 
+import { prisma } from '~/utils/db.server.ts'
+
 //server rendered code (loader)
 export async function loader({ params }: LoaderFunctionArgs) {
 	const { category } = params
