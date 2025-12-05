@@ -37,26 +37,31 @@ export default function HeaderWithSearch() {
 				</div>
 
 				{/* logo */}
-				<div className="hidden items-center gap-1 dark:block">
-					<NavLink
-						to="/"
-						className="flex w-40 items-center justify-center sm:items-end"
-					>
-						<img src={logoD} alt="Epic News Logo" />
-					</NavLink>
-				</div>
+				<div>
+					<div className="hidden items-center gap-1 dark:block">
+						<NavLink
+							to="/"
+							className="flex w-40 items-center justify-center sm:items-end"
+						>
+							<img src={logoD} alt="Epic News Logo" />
+						</NavLink>
+					</div>
 
-				<div className="block items-center gap-4 dark:hidden">
-					<NavLink
-						to="/"
-						className="flex w-40 items-center justify-center sm:items-end"
-					>
-						<img src={logoL} alt="Epic News Logo" />
-					</NavLink>
+					<div className="block items-center gap-4 dark:hidden">
+						<NavLink
+							to="/"
+							className="flex w-40 items-center justify-center sm:items-end"
+						>
+							<img src={logoL} alt="Epic News Logo" />
+						</NavLink>
+					</div>
+				</div>
+				<div className="ml-10 block md:hidden">
+					<UserDropdown />
 				</div>
 
 				{/* search bar */}
-				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
+				<div className="ml-auto hidden max-w-sm flex-1 md:block">
 					{searchBar}
 
 					{/* buttons (login / sign up) */}
