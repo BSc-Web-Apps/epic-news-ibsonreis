@@ -5,7 +5,7 @@ import * as React from 'react'
 import { cn } from '#app/utils/misc.tsx'
 
 const buttonVariants = cva(
-	'inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-ring transition-colors outline-none focus-visible:ring-2 focus-within:ring-2 ring-ring ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-dark-ring dark:ring-offset-dark-ring',
+	'text-md ring-offset-ring ring-ring dark:ring-dark-ring dark:ring-offset-dark-ring inline-flex items-center justify-center rounded-md font-medium ring-offset-2 transition-colors outline-none focus-within:ring-2 focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50',
 	{
 		variants: {
 			variant: {
@@ -14,15 +14,15 @@ const buttonVariants = cva(
 				destructive:
 					'bg-destructive text-destructive-foreground hover:bg-destructive/80 dark:bg-dark-destructive dark:text-dark-destructive-foreground dark:hover:bg-dark-destructive/80',
 				outline:
-					'border border-input bg-background hover:bg-accent hover:text-accent-foreground darK:border-dark-input dark:bg-dark-background dark:hover:bg-dark-accent dark:hover:text-dark-accent-foreground',
+					'border-input bg-background hover:bg-accent hover:text-accent-foreground darK:border-dark-input dark:bg-dark-background dark:hover:bg-dark-accent dark:hover:text-dark-accent-foreground border',
 				secondary:
 					'bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:bg-dark-secondary dark:text-dark-secondary-foreground dark:hover:bg-dark-secondary/80',
 				ghost:
 					'hover:bg-accent hover:text-accent-foreground dark:hover:bg-dark-accent dark:hover:text-dark-accent-foreground',
-				link: 'text-primary underline-offset-4 hover:underline dark:text-dark-primary',
+				link: 'text-primary dark:text-dark-primary underline-offset-4 hover:underline',
 			},
 			size: {
-				default: 'h-10 px-4 py-2',
+				default: 'h-10 px-4 py-6',
 				wide: 'px-24 py-5',
 				sm: 'h-9 rounded-md px-3',
 				lg: 'h-11 rounded-md px-8',
