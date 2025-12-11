@@ -22,11 +22,14 @@ import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { Textarea } from '#app/components/ui/textarea.tsx'
 import { cn, getArticleImgSrc, useIsPending } from '#app/utils/misc.tsx'
 import { type Route } from './+types/articles.$articleId_.edit.ts'
+import SelectorGroup from '~/components/molecules/SelectorGroup.tsx'
 
 const titleMinLength = 1
 const titleMaxLength = 100
 const contentMinLength = 1
 const contentMaxLength = 10000
+const categoryMinLength = 1
+const categoryMaxLength = 30
 
 export const MAX_UPLOAD_SIZE = 1024 * 1024 * 3 // 3MB
 
@@ -48,14 +51,21 @@ export const ArticleEditorSchema = z.object({
 	title: z.string().min(titleMinLength).max(titleMaxLength),
 	content: z.string().min(contentMinLength).max(contentMaxLength),
 	images: z.array(ImageFieldsetSchema).max(5).optional(),
+	categoryId: z
+		.string()
+		.min(categoryMinLength)
+		.max(categoryMaxLength)
+		.optional(),
 })
 
 export function ArticleEditor({
 	article,
 	actionData,
+	categories,
 }: {
 	article?: Route.ComponentProps['loaderData']['article']
 	actionData?: Route.ComponentProps['actionData']
+	categories?: Route.ComponentProps['loaderData']['categories']
 }) {
 	const isPending = useIsPending()
 
@@ -68,6 +78,8 @@ export function ArticleEditor({
 		},
 		defaultValue: {
 			...article,
+			categoryId: article?.category?.id ?? '',
+
 			images: article?.images ?? [{}],
 		},
 		shouldRevalidate: 'onBlur',
@@ -92,6 +104,25 @@ export function ArticleEditor({
 					{article ? (
 						<input type="hidden" name="id" value={article.id} />
 					) : null}
+					{categories?.length ? (
+						//categories
+						<div className="">
+							<div className="pb-3">
+								<Label>Category</Label>
+							</div>
+							<div className="flex flex-row items-start justify-start">
+								<SelectorGroup
+									name="categoryId"
+									initialValue={article?.category?.id ?? ''}
+									options={categories.map((category) => ({
+										value: category.id,
+										label: category.name,
+									}))}
+								/>
+							</div>
+						</div>
+					) : null}
+
 					<div className="flex flex-col gap-1">
 						<Field
 							labelProps={{ children: 'Title' }}
@@ -109,8 +140,11 @@ export function ArticleEditor({
 							errors={fields.content.errors}
 						/>
 						<div>
-							<Label>Images</Label>
-							<ul className="flex flex-col gap-4">
+							<div className="ml-9 pb-3">
+								<Label>Images</Label>
+							</div>
+
+							<ul className="flex flex-col">
 								{imageList.map((imageMeta, index) => {
 									const imageMetaId = imageMeta.getFieldset().id.value
 									const image = article?.images.find(
@@ -119,7 +153,7 @@ export function ArticleEditor({
 									return (
 										<li
 											key={imageMeta.key}
-											className="border-muted-foreground relative border-b-2"
+											className="border-muted-foreground relative border-b-1"
 										>
 											<button
 												className="text-foreground-destructive absolute top-0 right-0"
@@ -262,7 +296,9 @@ function ImageChooser({
 					</div>
 				</div>
 				<div className="flex-1">
-					<Label htmlFor={fields.altText.id}>Alt Text</Label>
+					<div className="pb-3">
+						<Label htmlFor={fields.altText.id}>Alt Text</Label>
+					</div>
 					<Textarea
 						onChange={(e) => setAltText(e.currentTarget.value)}
 						{...getTextareaProps(fields.altText)}
