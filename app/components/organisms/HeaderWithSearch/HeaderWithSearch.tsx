@@ -55,6 +55,15 @@ export default function HeaderWithSearch() {
 						</NavLink>
 					</div>
 				</div>
+				<div className="ml-10 block md:hidden">
+					{user ? (
+						<UserDropdown />
+					) : (
+						<Button asChild variant="default" size="lg" className="mt-4 w-50">
+							<Link to="/login">Log In</Link>
+						</Button>
+					)}
+				</div>
 
 				{/* search bar */}
 				<div className="ml-auto hidden max-w-sm flex-1 md:block">
