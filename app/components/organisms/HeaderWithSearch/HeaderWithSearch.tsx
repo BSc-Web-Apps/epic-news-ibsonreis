@@ -18,23 +18,24 @@ export default function HeaderWithSearch() {
 		<header className="m-1 py-0.5">
 			<nav className="bg-secondary flex items-center justify-between p-10 sm:flex-nowrap md:gap-8">
 				{/* nav link divs */}
-				<div className="text-secondary-foreground dark:text-dark-secondary-foreground mr-auto flex flex-col items-start gap-10 py-8 font-bold lg:flex-row">
-					<div className="lg:p-4.25">
+				<div className="text-secondary-foreground dark:text-dark-secondary-foreground flex flex-col items-start gap-10 py-8 font-bold md:mr-auto lg:flex-row">
+					<div className="sm:mr-15 md:mr-0 md:p-4.25">
 						<NavLink to="/news" prefetch="intent">
 							News
 						</NavLink>
 					</div>
-					<div className="lg:p-4.25">
+					<div className="sm:mr-15 md:mr-0 md:p-4.25">
 						<NavLink to="/about-us" prefetch="intent">
 							About Us
 						</NavLink>
 					</div>
-					<div className="lg:p-4.25">
+					<div className="sm:mr-15 md:mr-0 md:p-4.25">
 						<NavLink to="/contact-us" prefetch="intent">
 							Contact Us
 						</NavLink>
 					</div>
 				</div>
+
 				{/* logo */}
 				<div>
 					<div className="hidden items-center gap-1 dark:block">
@@ -59,7 +60,7 @@ export default function HeaderWithSearch() {
 					{user ? (
 						<UserDropdown />
 					) : (
-						<Button asChild variant="default" size="lg" className="mt-4 w-50">
+						<Button asChild variant="default" size="sm" className="mt-4 w-25">
 							<Link to="/login">Log In</Link>
 						</Button>
 					)}
