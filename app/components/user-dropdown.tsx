@@ -19,8 +19,8 @@ export function UserDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<div className="mt-4 w-50">
-					<Button asChild variant="secondary" size="lg">
+				<div className="mt-4">
+					<Button asChild variant="secondary" size="lg" className="w-45">
 						<Link
 							to={`/users/${user.username}`}
 							// this is for progressive enhancement

@@ -35,7 +35,6 @@ export default function HeaderWithSearch() {
 						</NavLink>
 					</div>
 				</div>
-
 				{/* logo */}
 				<div>
 					<div className="hidden items-center gap-1 dark:block">
@@ -56,9 +55,6 @@ export default function HeaderWithSearch() {
 						</NavLink>
 					</div>
 				</div>
-				<div className="ml-10 block md:hidden">
-					<UserDropdown />
-				</div>
 
 				{/* search bar */}
 				<div className="ml-auto hidden max-w-sm flex-1 md:block">
@@ -73,11 +69,11 @@ export default function HeaderWithSearch() {
 								<Link to="/login">Log In</Link>
 							</Button>
 						)}
+
 						<Button asChild variant="default" size="lg" className="mt-4 w-50">
 							<Link to="/signup">Sign Up</Link>
 						</Button>
 					</div>
-					<div className="block w-full sm:hidden">{searchBar}</div>
 				</div>
 			</nav>
 		</header>
