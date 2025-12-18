@@ -41,48 +41,30 @@ export default function Index() {
                 logo={logo}
 				logoR={logoR}
                 altText="Welcome to Epic News, where the latest developments in tech are found.">
-                <div className="mx-auto flex w-fit flex-1 flex-col justify-between gap-16 bg-secondary/40 px-28 py-16 backdrop-blur-sm">
+                <div className="mx-auto flex w-fit flex-1 flex-col justify-between gap-16 bg-secondary/40 px-20 py-16 backdrop-blur-sm">
                 <p className="text-center text-4xl font-extrabold text-secondary-foreground">
                     The latest tech news in one place
                 </p>
-                <div className="flex justify-center gap-8">
-                    <Button variant="default" size="wide">
-                    <Link to="/signup">Sign up</Link>
+				  <Button  size="wide" className='bg-ring'>
+                    <Link to="/signup">Join Today!</Link>
                     </Button>
-                    <Button variant="secondary" size="wide">
-                    <Link to="/login">Login</Link>
-                    </Button>
-                </div>
                 </div>
             </ParallaxBackground>
 		
 		<main className="grid h-full place-items-center">
-			{/* <div className="w-full">
-				<HeroCallToAction
-					image={hero}
-					hasBackgroundColour={true}
-					imageRight={true}
-				>
-					<div className="flex flex-col gap-8 px-8">
-						<h2 className="text-h2">Welcome to Epic News</h2>
-						<p className="text-lg">
-							Keep up to date with the latest tech news.
-						</p>
-					</div>
-				</HeroCallToAction>
-			</div> */}
+			
 			
 			<div className="container py-16">
 				<div className='border-b-2 '>
-				<h2 className="text-h2 mb-8 font-normal flex justify-start ">Latest news</h2>
+				<h2 className="text-h2  font-normal flex justify-start ">Latest news</h2>
 				</div>
 
-				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
 					{allArticles.length > 0 ? (
 						allArticles.map((article, index) => {
 							const isMainArticle = index === 0
 							return isMainArticle ? (
-								<div className="sm:col-span-2 sm:row-span-3 md:col-span-3 md:col-start-2 md:row-span-2 mt-6">
+								<div className="sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2 mt-6">
 									<ArticleCard
 										key={article.id}
 										articleId={article.id}

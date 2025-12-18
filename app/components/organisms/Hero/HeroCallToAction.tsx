@@ -13,7 +13,7 @@ const HeroCallToAction = ({
 }: HeroCallToActionProps) => {
 	return (
 		<div
-			className={`md:mx-auto md:flex md:max-w-7xl ${
+			className={`md:mx-auto md:flex md:max-w-9xl ${
 				imageRight && 'md:flex-row-reverse'
 			}`}
 		>

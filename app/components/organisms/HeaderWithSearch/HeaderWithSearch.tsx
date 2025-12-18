@@ -47,9 +47,11 @@ export default function HeaderWithSearch() {
 						>
 							<img src={logoD} alt="Epic News Logo" />
 						</NavLink>
+
+						{/* admin user check*/}
 						{isAdminUser && (
-    					<div className="flex justify-center sm:mr-15 md:mr-0 md:p-4.25">
-      						<Link to="/admin-review">Admin Review</Link>
+    					<div className="flex justify-center items-center mt-5 p-4.25 bg-accent">
+      					 <Link to="/admin-review">Admin Review</Link>
     					</div>
   						)}
 					</div>
@@ -61,11 +63,14 @@ export default function HeaderWithSearch() {
 						>
 							<img src={logoL} alt="Epic News Logo" />
 						</NavLink>
+
+					{/* admin user check*/}
+					
 					  {isAdminUser && (
-    <div className="flex justify-center sm:mr-15 md:mr-0 md:p-4.25">
-      <Link to="/admin-review">Admin Review</Link>
-    </div>
-  )}
+    				  <div className="flex justify-center items-center mt-5 p-4.25 bg-accent">
+      				   <Link to="/admin-review">Admin Review</Link>
+    				  </div>
+  						)}
 					</div>
 				</div>
 				<div className="ml-10 block md:hidden">
