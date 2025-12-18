@@ -1,13 +1,9 @@
 import { type MetaFunction, data, useLoaderData } from 'react-router'
-//images
-import portrait1 from '~/assets/jpg/portrait-01.jpg'
-import portrait2 from '~/assets/jpg/portrait-03.jpg'
-import portrait3 from '~/assets/jpg/portrait-04.jpg'
+
 //components
 import hero from '~/assets/jpg/sample-hero-two.jpg'
 import Buttons from '~/components/atoms/Buttons.tsx'
 import ArticleCard from '~/components/organisms/Cards/ArticleCard.tsx'
-import Card from '~/components/organisms/Cards/card.tsx'
 import HeroCallToAction from '~/components/organisms/Hero/HeroCallToAction.tsx'
 
 import { prisma } from '~/utils/db.server.ts'
@@ -46,12 +42,7 @@ export default function Index() {
 					</div>
 				</HeroCallToAction>
 			</div>
-			<h1 className="text-mega m-10">Meet the team!</h1>
-			<div className="m-4 flex items-center justify-between gap-4 sm:flex-col lg:flex-row">
-				<Card img={portrait1} name="Leonard Krasner" role="Senior Developer" />
-				<Card img={portrait2} name="Gilbert Jones" role="Principal Developer" />
-				<Card img={portrait3} name="Craig Smith" role="VP, User Experiance" />
-			</div>
+			
 			<div className="container py-16">
 				<h2 className="text-h2 mb-8 font-normal">Latest news</h2>
 
