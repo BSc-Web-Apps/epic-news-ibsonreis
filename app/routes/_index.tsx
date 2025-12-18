@@ -55,9 +55,11 @@ export default function Index() {
 			
 			
 			<div className="container py-16">
-				<div className='border-b-2 '>
+				<div>
 				<h2 className="text-h2  font-normal flex justify-start ">Latest news</h2>
 				</div>
+
+				<div className='border-b-2 mt-5 mx-auto'></div>
 
 				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
 					{allArticles.length > 0 ? (
