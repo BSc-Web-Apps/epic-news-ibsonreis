@@ -1,30 +1,41 @@
 import { Link, NavLink } from 'react-router'
-import logo from '#app/assets/svg/icon-placeholder.svg'
+import logoD from '#app/assets/png/epic-news-logo-green-dark.png'
+import logoL from '#app/assets/png/epic-news-logo-green-light.png'
+
 import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
 import { Button } from '#app/components/ui/button.tsx'
 import { type FooterProps } from './FooterBasic'
 
 const FooterMenuRight = ({
-	companyName = 'CHANGE THIS TO YOUR COMPANY NAME!',
+	companyName = 'Epic News',
 	altText = 'Our company logo',
 }: FooterProps) => {
 	return (
 		<footer className="bg-secondary dark:bg-dark-secondary lg:py-16">
 			<div className="border-muted-foreground/75 dark:border-dark-muted-foreground/75 container items-center justify-between border-b py-8 lg:flex">
-				<Link to="/" className="flex w-20 items-center justify-center lg:w-24">
-					<img src={logo} alt={altText} />
+				<Link
+					to="/"
+					className="block w-20 items-center justify-center gap-4 lg:w-24 dark:hidden"
+				>
+					<img src={logoL} alt={altText} />
+				</Link>
+				<Link
+					to="/"
+					className="hidden w-20 items-center justify-center lg:w-24 dark:block"
+				>
+					<img src={logoD} alt={altText} />
 				</Link>
 
 				<div className="lg:flex">
 					<div className="text-secondary-foreground dark:text-dark-secondary-foreground flex items-start gap-6 py-8 font-bold lg:mr-24">
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="news">News</NavLink>
 						</div>
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="/about-us">About Us</NavLink>
 						</div>
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="contact-us">Contact Us</NavLink>
 						</div>
 					</div>
 
