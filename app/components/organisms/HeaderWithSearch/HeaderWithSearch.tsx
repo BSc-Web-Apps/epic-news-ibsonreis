@@ -3,7 +3,7 @@ import { useMatches, NavLink, Link } from 'react-router'
 import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
-import { useOptionalUser } from '#app/utils/user.ts'
+import { useOptionalUser, userHasRole } from '#app/utils/user.ts'
 
 import logoD from '~/assets/png/epic-news-logo-green-dark.png'
 import logoL from '~/assets/png/epic-news-logo-green-light.png'
@@ -13,6 +13,7 @@ export default function HeaderWithSearch() {
 	const isOnSearchPage = matches.find((m) => m.id === 'routes/users+/index')
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />
 	const user = useOptionalUser()
+	const isAdminUser = user ? userHasRole(user, 'admin') : false
 
 	return (
 		<header className="m-1 py-0.5">
@@ -24,6 +25,7 @@ export default function HeaderWithSearch() {
 							News
 						</NavLink>
 					</div>
+
 					<div className="sm:mr-15 md:mr-0 md:p-4.25">
 						<NavLink to="/about-us" prefetch="intent">
 							About Us
@@ -45,6 +47,9 @@ export default function HeaderWithSearch() {
 						>
 							<img src={logoD} alt="Epic News Logo" />
 						</NavLink>
+						<div className="flex justify-center sm:mr-15 md:mr-0 md:p-4.25">
+							{isAdminUser && <Link to="/admin-review">Admin Review</Link>}
+						</div>
 					</div>
 
 					<div className="block items-center gap-4 dark:hidden">
@@ -54,6 +59,9 @@ export default function HeaderWithSearch() {
 						>
 							<img src={logoL} alt="Epic News Logo" />
 						</NavLink>
+						<div className="flex justify-center sm:mr-15 md:mr-0 md:p-4.25">
+							{isAdminUser && <Link to="/admin-review">Admin Review</Link>}
+						</div>
 					</div>
 				</div>
 				<div className="ml-10 block md:hidden">

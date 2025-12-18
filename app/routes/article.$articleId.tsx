@@ -42,6 +42,14 @@ export default function SingleArticlePage() {
 	return singleArticle ? (
 		<div className="container py-16">
 			<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
+			{/* <div>{singleArticle.images?.objectKey}</div> */}
+
+			<p className="text-h5 pb-2">
+				{singleArticle.category?.name || 'General News'}
+			</p>
+			<p className="text-h5 pb-5">{singleArticle.owner?.name}</p>
+
+			<p>{singleArticle.content}</p>
 		</div>
 	) : (
 		<ArticleNotFound />

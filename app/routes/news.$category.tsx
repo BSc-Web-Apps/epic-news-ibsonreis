@@ -1,11 +1,9 @@
 import { invariant } from '@epic-web/invariant'
+
 import { type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
-import { ArticleCard } from '~/components/organisms/Cards/ArticleCard.tsx'
+import ArticleCard from '~/components/organisms/Cards/ArticleCard.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { toTitleCase } from '~/utils/stringUtils.ts'
-
-// import { getArticleImgSrc } from '~/utils/misc.tsx'
-// import siteLogo from '~/assets/png/epic-news-logo-green-dark.png'
 
 //server rendered code (loader)
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -14,31 +12,36 @@ export async function loader({ params }: LoaderFunctionArgs) {
 	invariant(typeof category === 'string', 'Category not found')
 	const categoryTitle = toTitleCase(category)
 
-	const allArticles = await prisma.article.findMany({
+	const filteredArticles = await prisma.article.findMany({
+		where: {
+			category: {
+				slug: category, // Retrieves only articles in the specified category
+			},
+		},
 		select: {
 			id: true,
 			title: true,
 			category: { select: { name: true } },
-			images: { select: { id: true } },
+			images: { select: { id: true, objectKey: true } },
 		},
 	})
 
-	return data({ categoryTitle, allArticles })
+	return data({ categoryTitle, filteredArticles })
 }
 
 export default function NewsCategoryPage() {
-	const { categoryTitle, allArticles } = useLoaderData<typeof loader>()
+	const { categoryTitle, filteredArticles } = useLoaderData<typeof loader>()
 	return (
 		<div className="container py-16">
 			<h2 className="text-h2 mb-15">{categoryTitle}</h2>
 			<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
-				{allArticles.map((article) => (
+				{filteredArticles.map((article) => (
 					<ArticleCard
 						key={article.id}
 						articleId={article.id}
-						title={article.id}
+						title={article.title}
 						category={article.category?.name}
-						// objectKey={article.images[0]?.objectKey}
+						objectKey={article.images[0]?.objectKey}
 					/>
 				))}
 			</div>
