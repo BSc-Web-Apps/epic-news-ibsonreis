@@ -9,6 +9,12 @@ export { action } from './__article-editor.server.tsx'
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	const userId = await requireUserId(request)
+	const categories = await prisma.articleCategory.findMany({
+		select: {
+			id: true,
+			name: true,
+		},
+	})
 	const article = await prisma.article.findFirst({
 		select: {
 			id: true,
@@ -28,14 +34,20 @@ export async function loader({ params, request }: Route.LoaderArgs) {
 		},
 	})
 	invariantResponse(article, 'Not found', { status: 404 })
-	return { article }
+	return { article, categories }
 }
 
 export default function ArticleEdit({
 	loaderData,
 	actionData,
 }: Route.ComponentProps) {
-	return <ArticleEditor article={loaderData.article} actionData={actionData} />
+	return (
+		<ArticleEditor
+			categories={loaderData.categories}
+			article={loaderData.article}
+			actionData={actionData}
+		/>
+	)
 }
 
 export function ErrorBoundary() {
