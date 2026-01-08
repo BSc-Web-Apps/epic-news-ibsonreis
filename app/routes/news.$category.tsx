@@ -31,19 +31,25 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function NewsCategoryPage() {
 	const { categoryTitle, filteredArticles } = useLoaderData<typeof loader>()
+	const hasArticles = filteredArticles.length > 0
+
 	return (
 		<div className="container py-16">
 			<h2 className="text-h2 mb-15">{categoryTitle}</h2>
 			<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
-				{filteredArticles.map((article) => (
-					<ArticleCard
-						key={article.id}
-						articleId={article.id}
-						title={article.title}
-						category={article.category?.name}
-						objectKey={article.images[0]?.objectKey}
-					/>
-				))}
+				{hasArticles ? (
+					filteredArticles.map((article) => (
+						<ArticleCard
+							key={article.id}
+							articleId={article.id}
+							title={article.title}
+							category={article.category?.name}
+							objectKey={article.images[0]?.objectKey}
+						/>
+					))
+				) : (
+					<h2>There are no published {categoryTitle} articles...</h2>
+				)}
 			</div>
 		</div>
 	)
