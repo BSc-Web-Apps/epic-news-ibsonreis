@@ -10,7 +10,7 @@ export default function Card({ img, name, role }: CardProps) {
 	return (
 		<div className="bg-accent m-2 flex flex-col items-center rounded-xl p-10 px-17">
 			<img
-				className="mb-5 w-50 rounded-full shadow-2xl"
+				className="mb-5 w-50 h-50 rounded-full shadow-2xl"
 				src={img}
 				alt="portrait"
 			/>
