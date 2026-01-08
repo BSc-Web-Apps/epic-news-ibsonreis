@@ -11,8 +11,6 @@ import ArticleCard from '~/components/organisms/Cards/ArticleCard.tsx'
 // import HeroCallToAction from '~/components/organisms/Hero/HeroCallToAction.tsx'
 import ParallaxBackground from '~/components/organisms/Hero/ParallaxBackground.tsx'
 
-
-
 import { prisma } from '~/utils/db.server.ts'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
@@ -36,37 +34,47 @@ export default function Index() {
 	return (
 		<ParallaxProvider>
 			<ParallaxBackground
-                image={hero}
-                title="Epic News"
-                logo={logo}
+				image={hero}
+				title="Epic News"
+				logo={logo}
 				logoR={logoR}
-                altText="Welcome to Epic News, where the latest developments in tech are found.">
-                <div className="mx-auto flex w-fit flex-1 flex-col justify-between gap-16 bg-secondary/40 px-20 py-16 backdrop-blur-sm">
-                <p className="text-center text-4xl font-extrabold text-secondary-foreground">
-                    The latest tech news in one place
-                </p>
-				  <Button  size="wide" className='bg-ring'>
-                    <Link to="/signup">Join Today!</Link>
-                    </Button>
-                </div>
-            </ParallaxBackground>
-		
-		<main className="grid h-full place-items-center">
-			
-			
-			<div className="container py-16">
-				<div>
-				<h2 className="text-h2  font-normal flex justify-start ">Latest news</h2>
+				altText="Welcome to Epic News, where the latest developments in tech are found."
+			>
+				<div className="bg-secondary/40 mx-auto flex w-fit flex-1 flex-col justify-between gap-16 px-20 py-16 backdrop-blur-sm">
+					<p className="text-secondary-foreground text-center text-4xl font-extrabold">
+						The latest tech news in one place
+					</p>
+					<Button size="wide" className="bg-ring">
+						<Link to="/signup">Join Today!</Link>
+					</Button>
 				</div>
+			</ParallaxBackground>
 
-				<div className='border-b-2 mt-5 mx-auto'></div>
+			<main className="grid h-full place-items-center">
+				<div className="container py-16">
+					<div>
+						<h2 className="text-h2 flex justify-start font-normal">
+							Latest news
+						</h2>
+					</div>
 
-				<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-					{allArticles.length > 0 ? (
-						allArticles.map((article, index) => {
-							const isMainArticle = index === 0
-							return isMainArticle ? (
-								<div className="sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2 mt-6">
+					<div className="mx-auto mt-5 border-b-2"></div>
+
+					<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+						{allArticles.length > 0 ? (
+							allArticles.map((article, index) => {
+								const isMainArticle = index === 0
+								return isMainArticle ? (
+									<div className="mt-6 sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2">
+										<ArticleCard
+											key={article.id}
+											articleId={article.id}
+											title={article.title}
+											category={article.category?.name}
+											objectKey={article.images[0]?.objectKey}
+										/>
+									</div>
+								) : (
 									<ArticleCard
 										key={article.id}
 										articleId={article.id}
@@ -74,24 +82,14 @@ export default function Index() {
 										category={article.category?.name}
 										objectKey={article.images[0]?.objectKey}
 									/>
-								</div>
-							) : (
-								<ArticleCard
-									key={article.id}
-									articleId={article.id}
-									title={article.title}
-									category={article.category?.name}
-									objectKey={article.images[0]?.objectKey}
-								/>
-							)
-						})
-					) : (
-						<p>No articles found</p>
-					)}
+								)
+							})
+						) : (
+							<p>No articles found</p>
+						)}
+					</div>
 				</div>
-			</div>
-			
-		</main>
+			</main>
 		</ParallaxProvider>
 	)
 }
