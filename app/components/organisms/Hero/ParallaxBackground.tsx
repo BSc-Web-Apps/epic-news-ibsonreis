@@ -5,6 +5,7 @@ interface ParallaxBackgroundProps {
 	title?: string
 	image: string
 	logo?: string
+	logoR?: string
 	altText?: string
 	children?: React.ReactNode
 }
@@ -14,6 +15,7 @@ const ParallaxBackground = ({
 	title,
 	image,
 	logo,
+	logoR,
 	altText = 'Welcome to DoBu Martial Arts - where we are stronger together',
 	children,
 }: ParallaxBackgroundProps) => {
@@ -40,17 +42,32 @@ const ParallaxBackground = ({
 					/>
 					<div className="bg-primary-light absolute inset-0 mix-blend-multiply" />
 				</div>
-				<div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
-					<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-						<span className="via-secondary-dark block bg-gradient-to-r from-secondary to-secondary bg-clip-text uppercase text-transparent drop-shadow-md">
+
+				<div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32 lg:pb-20">
+					{logo && (
+						<div>
+							<div className="mx-auto my-8 block w-32 items-center gap-4 dark:hidden">
+								<img
+									src={logo}
+									className="drop-shadow-md"
+									alt="Epic News Logo"
+								/>
+							</div>
+							<div className="mx-auto my-8 hidden w-32 items-center gap-4 dark:block">
+								<img
+									src={logoR}
+									className="drop-shadow-md"
+									alt="Epic News Logo"
+								/>
+							</div>
+						</div>
+					)}
+					<h1 className="pb-10 text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
+						<span className="block bg-gradient-to-r bg-clip-text text-gray-100 uppercase drop-shadow-md">
 							{title}
 						</span>
 					</h1>
-					{logo && (
-						<div className="mx-auto my-8 w-32">
-							<img src={logo} className="drop-shadow-md" alt="Epic News Logo" />
-						</div>
-					)}
+
 					{description && (
 						<p className="text-secondary-light mx-auto mt-6 max-w-lg text-center text-2xl drop-shadow-md sm:max-w-3xl lg:text-5xl">
 							{description}
