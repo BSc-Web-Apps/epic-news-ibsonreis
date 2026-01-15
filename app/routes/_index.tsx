@@ -1,4 +1,10 @@
-import { Link, type MetaFunction, data, useLoaderData } from 'react-router'
+import {
+	Link,
+	type MetaFunction,
+	data,
+	useLoaderData,
+	LoaderFunctionArgs,
+} from 'react-router'
 
 //components
 import { ParallaxProvider } from 'react-scroll-parallax'
@@ -15,8 +21,42 @@ import { prisma } from '~/utils/db.server.ts'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 export async function loader() {
-	const allArticles = await prisma.article.findMany({
-		where: { isPublished: true },
+	const techArticles = await prisma.article.findMany({
+		where: {
+			isPublished: true,
+			category: {
+				slug: 'technology', // Retrieves only articles in the specified category
+			},
+		},
+
+		select: {
+			id: true,
+			title: true,
+			category: { select: { name: true } },
+			images: { select: { objectKey: true } },
+		},
+	})
+	const entArticles = await prisma.article.findMany({
+		where: {
+			isPublished: true,
+			category: {
+				slug: 'entertainment', // Retrieves only articles in the specified category
+			},
+		},
+		select: {
+			id: true,
+			title: true,
+			category: { select: { name: true } },
+			images: { select: { objectKey: true } },
+		},
+	})
+	const busArticles = await prisma.article.findMany({
+		where: {
+			isPublished: true,
+			category: {
+				slug: 'business', // Retrieves only articles in the specified category
+			},
+		},
 		select: {
 			id: true,
 			title: true,
@@ -25,11 +65,17 @@ export async function loader() {
 		},
 	})
 
-	return data({ allArticles })
+	return data({ techArticles, entArticles, busArticles })
 }
 
+// tech
+
 export default function Index() {
-	const { allArticles } = useLoaderData<typeof loader>()
+	const { techArticles, entArticles, busArticles } =
+		useLoaderData<typeof loader>()
+	const hasTechArticles = techArticles.length > 0
+	const hasEntArticles = entArticles.length > 0
+	const hasBusArticles = busArticles.length > 0
 
 	return (
 		<ParallaxProvider>
@@ -54,15 +100,82 @@ export default function Index() {
 				<div className="container py-16">
 					<div>
 						<h2 className="text-h2 flex justify-start font-normal">
-							Latest news
+							Technology
+						</h2>
+						<div className="mx-auto mt-5 border-b-2"></div>
+
+						<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+							{hasTechArticles ? (
+								techArticles.map((article, index) => {
+									const isMainArticle = index === 0
+									return isMainArticle ? (
+										<div className="mt-6 sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2">
+											<ArticleCard
+												key={article.id}
+												articleId={article.id}
+												title={article.title}
+												category={article.category?.name}
+												objectKey={article.images[0]?.objectKey}
+											/>
+										</div>
+									) : (
+										<ArticleCard
+											key={article.id}
+											articleId={article.id}
+											title={article.title}
+											category={article.category?.name}
+											objectKey={article.images[0]?.objectKey}
+										/>
+									)
+								})
+							) : (
+								<p>No articles found</p>
+							)}
+						</div>
+
+						<h2 className="text-h2 mt-10 flex justify-start font-normal">
+							Entertainment
+						</h2>
+						<div className="mx-auto mt-5 border-b-2"></div>
+
+						<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+							{hasEntArticles ? (
+								entArticles.map((article, index) => {
+									const isMainArticle = index === 0
+									return isMainArticle ? (
+										<div className="mt-6 sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2">
+											<ArticleCard
+												key={article.id}
+												articleId={article.id}
+												title={article.title}
+												category={article.category?.name}
+												objectKey={article.images[0]?.objectKey}
+											/>
+										</div>
+									) : (
+										<ArticleCard
+											key={article.id}
+											articleId={article.id}
+											title={article.title}
+											category={article.category?.name}
+											objectKey={article.images[0]?.objectKey}
+										/>
+									)
+								})
+							) : (
+								<p>No articles found</p>
+							)}
+						</div>
+
+						<h2 className="text-h2 mt-10 flex justify-start font-normal">
+							Business
 						</h2>
 					</div>
-
 					<div className="mx-auto mt-5 border-b-2"></div>
 
 					<div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-						{allArticles.length > 0 ? (
-							allArticles.map((article, index) => {
+						{hasBusArticles ? (
+							busArticles.map((article, index) => {
 								const isMainArticle = index === 0
 								return isMainArticle ? (
 									<div className="mt-6 sm:col-span-2 sm:row-span-3 lg:col-span-3 lg:col-start-2 lg:row-span-2">

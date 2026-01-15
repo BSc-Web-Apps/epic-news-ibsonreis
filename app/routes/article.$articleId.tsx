@@ -52,7 +52,7 @@ export default function SingleArticlePage() {
 			<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
 			{/* <div>{singleArticle.images?.objectKey}</div> */}
 
-			<img src={imageSrc} alt={singleArticle.title} />
+			<img className="lg:max-w-2/3" src={imageSrc} alt={singleArticle.title} />
 
 			<p className="text-h5 pb-2">
 				{singleArticle.category?.name || 'General News'}
