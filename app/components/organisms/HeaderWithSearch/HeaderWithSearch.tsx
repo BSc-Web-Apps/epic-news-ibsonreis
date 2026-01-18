@@ -20,7 +20,7 @@ export default function HeaderWithSearch() {
 			<nav className="bg-secondary flex items-center justify-between p-10 sm:flex-nowrap md:gap-8">
 				{/* nav link divs */}
 				<div className="text-secondary-foreground dark:text-dark-secondary-foreground flex flex-col items-start gap-10 py-8 font-bold md:mr-auto lg:flex-row">
-					<div className="sm:mr-15 md:mr-0 md:p-4.25">
+					<div className="sm:mr-15 md:mr-0 md:p-4.25  flex">
 						<NavLink to="/news" prefetch="intent">
 							News
 						</NavLink>
@@ -50,8 +50,10 @@ export default function HeaderWithSearch() {
 
 						{/* admin user check*/}
 						{isAdminUser && (
-    					<div className="flex justify-center items-center mt-5 p-4.25 bg-accent">
-      					 <Link to="/admin-review">Admin Review</Link>
+    					<div className="flex justify-center items-center ">
+      					<Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
+      				   		<Link to="/admin-review">Admin Review</Link>
+					    </Button>
     					</div>
   						)}
 					</div>
@@ -67,13 +69,16 @@ export default function HeaderWithSearch() {
 					{/* admin user check*/}
 					
 					  {isAdminUser && (
-    				  <div className="flex justify-center items-center mt-5 p-4.25 bg-accent">
-      				   <Link to="/admin-review">Admin Review</Link>
+    				  <div className="flex justify-center items-center">
+					  <Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
+      				  	<Link to="/admin-review">Admin Review</Link>
+					  </Button>
     				  </div>
   						)}
 					</div>
 				</div>
-				<div className="ml-10 block md:hidden">
+
+				<div className="block md:hidden">
 					{user ? (
 						<UserDropdown />
 					) : (

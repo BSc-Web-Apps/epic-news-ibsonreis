@@ -63,7 +63,7 @@ const ParallaxBackground = ({
 						</div>
 					)}
 					<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl pb-10">
-						<span className="block bg-gradient-to-r bg-clip-text uppercase drop-shadow-lg text-gray-200 ">
+						<span className="block bg-gradient-to-r bg-clip-text uppercase drop-shadow-lg text-gray-100 ">
 							{title}
 						</span>
 					</h1>

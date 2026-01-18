@@ -3,7 +3,7 @@ import {
 	type MetaFunction,
 	data,
 	useLoaderData,
-	LoaderFunctionArgs,
+	
 } from 'react-router'
 
 //components
@@ -25,7 +25,7 @@ export async function loader() {
 		where: {
 			isPublished: true,
 			category: {
-				slug: 'technology', // Retrieves only articles in the specified category
+				slug: 'technology', 
 			},
 		},
 
@@ -40,7 +40,7 @@ export async function loader() {
 		where: {
 			isPublished: true,
 			category: {
-				slug: 'entertainment', // Retrieves only articles in the specified category
+				slug: 'entertainment', 
 			},
 		},
 		select: {
@@ -54,7 +54,7 @@ export async function loader() {
 		where: {
 			isPublished: true,
 			category: {
-				slug: 'business', // Retrieves only articles in the specified category
+				slug: 'business', 
 			},
 		},
 		select: {
@@ -129,7 +129,7 @@ export default function Index() {
 									)
 								})
 							) : (
-								<p>No articles found</p>
+								<p className='p-10'>No articles found</p>
 							)}
 						</div>
 
@@ -163,7 +163,7 @@ export default function Index() {
 									)
 								})
 							) : (
-								<p>No articles found</p>
+								<p className='p-10'>No articles found</p>
 							)}
 						</div>
 
@@ -198,7 +198,7 @@ export default function Index() {
 								)
 							})
 						) : (
-							<p>No articles found</p>
+						<p className='p-10'>No articles found</p>
 						)}
 					</div>
 				</div>

@@ -48,18 +48,31 @@ export default function SingleArticlePage() {
 		: siteLogo
 
 	return singleArticle ? (
-		<div className="container py-16">
-			<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
-			{/* <div>{singleArticle.images?.objectKey}</div> */}
+		<div className=" my-10">
+			
+        	<div className="grid grid-cols-2 grid-rows-1  border-2">
+				<div className='container'>
+					{/* title */}
+					<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
 
-			<img className="lg:max-w-2/3" src={imageSrc} alt={singleArticle.title} />
+					{/* category and author */}
+					<p className="text-h5 pb-2">
+					{singleArticle.category?.name || 'General News'}
+					</p>
+					<p className="text-h5 pb-5">{singleArticle.owner?.name}</p>
 
-			<p className="text-h5 pb-2">
-				{singleArticle.category?.name || 'General News'}
-			</p>
-			<p className="text-h5 pb-5">{singleArticle.owner?.name}</p>
+					{/* content */}
+					<p>{singleArticle.content}</p>
+				</div>
 
-			<p>{singleArticle.content}</p>
+		
+				<div className="col-start-2 flex">
+					<div className='flex justify-center'>
+						<img className="" src={imageSrc} alt={singleArticle.title} />
+					</div>
+				</div>
+			</div>
+
 		</div>
 	) : (
 		<ArticleNotFound />

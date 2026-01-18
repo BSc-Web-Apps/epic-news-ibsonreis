@@ -14,10 +14,9 @@ import hero from '~/assets/jpg/sample-hero-one.jpg'
 
 export default function AboutUsRoute() {
 	return (
-		<main className="container">
-<div className="border-b-2 mb-5 mx-auto"></div>
-		
-			<div className="w-full">
+		<main>
+		<div className="border-b-2 mb-5 mx-auto"></div>
+			<div className="">
 				<HeroCallToAction
 					image={hero}
 					hasBackgroundColour={true}
@@ -25,7 +24,7 @@ export default function AboutUsRoute() {
 				>
 				<div className="flex flex-col gap-8 px-8 justify-center items-center">
 						<h2 className="text-h2">Meet the team!</h2>
-						<p className="text-lg flex justify-center text-center p-10">
+						<p className="text-lg flex justify-center text-center p-10 sm:text:md">
 							Meet the team dedicated to bringing you the latest and most
 							trusted tech news. Our diverse group of professionals combines
 							expertise in journalism, technology, and user experience to deliver
@@ -37,7 +36,7 @@ export default function AboutUsRoute() {
 
 			<div className="border-b-2 mt-5 mx-auto"></div>
 	
-			<div className=" mt-4 mb-10 items-center justify-between gap-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+			<div className="container mt-5 mb-10 items-center justify-between gap-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 				<Card img={portrait1} name="Leonard Krasner" role="Senior Developer" />
 				<Card img={portrait2} name="Gilbert Jones" role="Principal Developer" />
 				<Card img={portrait3} name="Jade Smith" role="VP, User Experiance" />
