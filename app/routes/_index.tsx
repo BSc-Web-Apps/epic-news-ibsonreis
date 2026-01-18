@@ -45,7 +45,7 @@ export default function Index() {
                 <p className="text-center text-4xl font-extrabold text-secondary-foreground">
                     The latest tech news in one place
                 </p>
-				  <Button  size="wide" className='bg-ring'>
+				    <Button  size="wide" className='bg-ring'>
                     <Link to="/signup">Join Today!</Link>
                     </Button>
                 </div>

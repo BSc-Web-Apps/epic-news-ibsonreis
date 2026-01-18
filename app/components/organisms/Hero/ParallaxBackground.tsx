@@ -16,7 +16,7 @@ const ParallaxBackground = ({
 	image,
 	logo,
 	logoR,
-	altText = 'Welcome to DoBu Martial Arts - where we are stronger together',
+	altText = 'Welcome to Epic News, where the latest developments in tech are found.',
 	children,
 }: ParallaxBackgroundProps) => {
 	const parallaxController = useParallaxController()
@@ -55,7 +55,7 @@ const ParallaxBackground = ({
 						</div>
 					)}
 					<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl pb-10">
-						<span className="block bg-gradient-to-r bg-clip-text uppercase text-ring drop-shadow-md">
+						<span className="block bg-gradient-to-r bg-clip-text uppercase drop-shadow-lg text-gray-200 ">
 							{title}
 						</span>
 					</h1>

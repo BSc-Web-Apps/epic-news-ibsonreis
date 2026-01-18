@@ -38,6 +38,7 @@
 	--foreground-destructive: oklch(51.46% 0.1979 16.57);
 
 	--ring: oklch(40.91% 0.035 130.13);
+	--rings: oklch(75.89% 0.068 125.85);
 }
 
 .dark {
@@ -77,6 +78,7 @@
 	--foreground-destructive: oklch(63.72% 0.2071 21.89);
 
 	--ring: oklch(40.91% 0.035 130.13);
+	--rings: oklch(75.89% 0.068 125.85);
 }
 
 @theme inline {
