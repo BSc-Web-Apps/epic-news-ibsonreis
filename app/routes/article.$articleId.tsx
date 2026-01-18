@@ -1,5 +1,7 @@
 import { invariant } from '@epic-web/invariant'
 import { type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
+import { getArticleImgSrc } from '#app/utils/misc.tsx'
+import siteLogo from '~/assets/png/epic-news-logo-green-dark.png'
 import { prisma } from '~/utils/db.server.ts'
 
 //server rendered code (loader) backend
@@ -39,10 +41,18 @@ const ArticleNotFound = () => {
 export default function SingleArticlePage() {
 	const { singleArticle } = useLoaderData<typeof loader>()
 
+	if (!singleArticle) return <ArticleNotFound />
+
+	const imageSrc = singleArticle.images[0]
+		? getArticleImgSrc(singleArticle.images[0].objectKey)
+		: siteLogo
+
 	return singleArticle ? (
 		<div className="container py-16">
 			<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
 			{/* <div>{singleArticle.images?.objectKey}</div> */}
+
+			<img className="lg:max-w-2/3" src={imageSrc} alt={singleArticle.title} />
 
 			<p className="text-h5 pb-2">
 				{singleArticle.category?.name || 'General News'}

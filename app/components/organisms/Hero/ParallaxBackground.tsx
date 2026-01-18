@@ -24,7 +24,7 @@ const ParallaxBackground = ({
 
 	return (
 		<div className="relative">
-			<div className="relative shadow-xl sm:overflow-hidden ">
+			<div className="relative shadow-xl sm:overflow-hidden">
 				<div className="absolute inset-0">
 					<Parallax className="hidden lg:block" speed={-20}>
 						<img
@@ -42,16 +42,24 @@ const ParallaxBackground = ({
 					/>
 					<div className="bg-primary-light absolute inset-0 mix-blend-multiply" />
 				</div>
-				
-				<div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
+
+				<div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32 lg:pb-20">
 					{logo && (
 						<div>
-						<div className="mx-auto my-8 w-32 block items-center gap-4 dark:hidden">
-							<img src={logo} className="drop-shadow-md" alt="Epic News Logo" />
-						</div>
-						<div className="mx-auto my-8 w-32 hidden items-center gap-4 dark:block">
-							<img src={logoR} className="drop-shadow-md" alt="Epic News Logo" />
-						</div>
+							<div className="mx-auto my-8 block w-32 items-center gap-4 dark:hidden">
+								<img
+									src={logo}
+									className="drop-shadow-md"
+									alt="Epic News Logo"
+								/>
+							</div>
+							<div className="mx-auto my-8 hidden w-32 items-center gap-4 dark:block">
+								<img
+									src={logoR}
+									className="drop-shadow-md"
+									alt="Epic News Logo"
+								/>
+							</div>
 						</div>
 					)}
 					<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl pb-10">
@@ -59,7 +67,7 @@ const ParallaxBackground = ({
 							{title}
 						</span>
 					</h1>
-					
+
 					{description && (
 						<p className="text-secondary-light mx-auto mt-6 max-w-lg text-center text-2xl drop-shadow-md sm:max-w-3xl lg:text-5xl">
 							{description}
@@ -73,5 +81,3 @@ const ParallaxBackground = ({
 }
 
 export default ParallaxBackground
-
-
