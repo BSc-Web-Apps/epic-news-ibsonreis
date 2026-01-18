@@ -6,7 +6,7 @@ import {
 	MdOutlineNewspaper,
 } from 'react-icons/md'
 import { Link } from 'react-router'
-import siteLogo from '~/assets/png/epic-news-logo-green-dark.png'
+import siteLogo from '~/assets/png/epic-news-logo-green-light.png'
 import { getArticleImgSrc } from '~/utils/misc.tsx'
 
 interface ArticleCardProps {

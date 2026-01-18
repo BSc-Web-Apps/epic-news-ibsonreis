@@ -50,12 +50,12 @@ export default function HeaderWithSearch() {
 
 						{/* admin user check*/}
 						{isAdminUser && (
-    					<div className="flex justify-center items-center ">
-      					<Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
-      				   		<Link to="/admin-review">Admin Review</Link>
-					    </Button>
-    					</div>
-  						)}
+							<div className="flex justify-center items-center ">
+							<Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
+								<Link to="/admin-review">Admin Review</Link>
+							</Button>
+							</div>
+							)}
 					</div>
 
 					<div className="block items-center gap-4 dark:hidden">
@@ -68,14 +68,14 @@ export default function HeaderWithSearch() {
 
 					{/* admin user check*/}
 					
-					  {isAdminUser && (
-    				  <div className="flex justify-center items-center">
-					  <Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
-      				  	<Link to="/admin-review">Admin Review</Link>
-					  </Button>
-    				  </div>
-  						)}
-					</div>
+						{isAdminUser && (
+						<div className="flex justify-center items-center">
+						<Button variant="default" size="lg" className="mt-5 w-40 p-4.25 ">
+							<Link to="/admin-review">Admin Review</Link>
+						</Button>
+						</div>
+							)}
+						</div>
 				</div>
 
 				<div className="block md:hidden">

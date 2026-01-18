@@ -1,8 +1,11 @@
 import { invariant } from '@epic-web/invariant'
-import { type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
+import { Link, type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
 import { getArticleImgSrc } from '#app/utils/misc.tsx'
+import { useUser } from '#app/utils/user.ts'
 import siteLogo from '~/assets/png/epic-news-logo-green-dark.png'
 import { prisma } from '~/utils/db.server.ts'
+
+
 
 //server rendered code (loader) backend
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -40,6 +43,7 @@ const ArticleNotFound = () => {
 
 export default function SingleArticlePage() {
 	const { singleArticle } = useLoaderData<typeof loader>()
+		const user = useUser()
 
 	if (!singleArticle) return <ArticleNotFound />
 
@@ -47,34 +51,100 @@ export default function SingleArticlePage() {
 		? getArticleImgSrc(singleArticle.images[0].objectKey)
 		: siteLogo
 
-	return singleArticle ? (
-		<div className=" my-10">
+	const truncateWords = (content: string, wordLimit: number): string => {
+		const words = content.split(' ')
+		return words.length > wordLimit
+			? words.slice(0, wordLimit).join(' ') + '...'
+			: content
+	}
+
+		return singleArticle ? (
+		<div className="my-10 px-4 md:px-8 lg:px-16">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 			
-        	<div className="grid grid-cols-2 grid-rows-1  border-2">
-				<div className='container'>
-					{/* title */}
-					<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
+				{/* Article content */}
+				<div className="bg-accent p-6 md:p-20 lg:p-20 lg:py-70 rounded-lg ">
+					<div className="flex flex-wrap gap-4 mb-4 ">
+						<div className='bg-secondary px-3 py-1 rounded'>
+							<Link prefetch="intent" to={`/users/${user.username}`}>
+								<p className="text-h5 cursor-pointer hover:underline underline-offset-4">{singleArticle.owner?.name}</p>
+							</Link>
+						</div>
+						<div className='px-3 py-1'>
+							<Link prefetch="intent" to={`/news/${(singleArticle.category?.name || 'General News').toLowerCase()}`}>
+								<p className="text-h5 cursor-pointer hover:underline underline-offset-4">
+									{singleArticle.category?.name || 'General News'}
+								</p>
+							</Link>
+						</div>
+					</div>
 
-					{/* category and author */}
-					<p className="text-h5 pb-2">
-					{singleArticle.category?.name || 'General News'}
+					<h2 className="text-h2 mb-6">
+					{singleArticle.title}
+					</h2>
+
+					<p className="leading-relaxed mt-10">
+					{truncateWords(singleArticle.content, 40)}
 					</p>
-					<p className="text-h5 pb-5">{singleArticle.owner?.name}</p>
-
-					{/* content */}
-					<p>{singleArticle.content}</p>
 				</div>
+
+				{/* Image column */}
+				<div className="h-full">
+					<img
+					src={imageSrc}
+					alt={singleArticle.title}
+					className="w-full h-full object-cover rounded-lg"
+					/>
+				</div>
+
+			</div>
+			<div className="bg-accent p-10 rounded-lg mt-8">
+				
+				<div className='flex text-3xl font-semibold'>
+					{singleArticle.title}
+				</div>
+					{/* border	 */}
+					<div className="border-b-2 mt-5 mx-auto"></div>
+					{/* full content */}
+					<div className='mt-5'>
+						{singleArticle.content}
+					</div>
+			</div>
+		</div>
+		) : (
+		<ArticleNotFound />
+		)
+
+
+	// return singleArticle ? (
+	// 	<div className=" my-10">
+			
+    //     	<div className="grid grid-cols-2 grid-rows-1  ">
+	// 			<div className='container p-58 bg-accent'>
+
+	// 					{/* category and author */}
+	// 				<div className='flex gap-4'>
+	// 				
+					
+	// 				</div>
+	// 				{/* title */}
+	// 				<h2 className="text-h2 pb-8">{singleArticle.title}</h2>
+
+				
+	// 				{/* content */}
+	// 				<p>{singleArticle.content}</p>
+	// 			</div>
 
 		
-				<div className="col-start-2 flex">
-					<div className='flex justify-center'>
-						<img className="" src={imageSrc} alt={singleArticle.title} />
-					</div>
-				</div>
-			</div>
+	// 			<div className="col-start-2 flex">
+	// 				<div className='flex justify-center'>
+	// 					<img className="" src={imageSrc} alt={singleArticle.title} />
+	// 				</div>
+	// 			</div>
+	// 		</div>
 
-		</div>
-	) : (
-		<ArticleNotFound />
-	)
+	// 	</div>
+	// ) : (
+	// 	<ArticleNotFound />
+	// )
 }
