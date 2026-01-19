@@ -45,7 +45,7 @@ export default function ProfileRoute() {
 		<div className="container mt-36 mb-48 flex flex-col items-center justify-center">
 			<Spacer size="4xs" />
 
-			<div className="bg-muted container flex flex-col items-center rounded-3xl p-12">
+			<div className="bg-secondary container flex flex-col items-center rounded-3xl p-12">
 				<div className="relative w-52">
 					<div className="absolute -top-40">
 						<div className="relative">

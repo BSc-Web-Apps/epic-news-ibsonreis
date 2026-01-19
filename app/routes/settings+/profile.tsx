@@ -74,7 +74,7 @@ export default function EditUserProfile() {
 				</ul>
 			</div>
 			<Spacer size="xs" />
-			<main className="bg-muted mx-auto px-6 py-8 md:container md:rounded-3xl">
+			<main className="bg-secondary mx-auto px-6 py-8 md:container md:rounded-3xl">
 				<Outlet />
 			</main>
 		</div>

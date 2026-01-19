@@ -99,7 +99,7 @@ export async function action({ request }: Route.ActionArgs) {
 
 export default function EditUserProfile({ loaderData }: Route.ComponentProps) {
 	return (
-		<div className="flex flex-col gap-12">
+		<div className="flex flex-col gap-12 ">
 			<div className="flex justify-center">
 				<div className="relative size-52">
 					<Img

@@ -1,7 +1,6 @@
 import { invariant } from '@epic-web/invariant'
 import { Link, type LoaderFunctionArgs, data, useLoaderData } from 'react-router'
 import { getArticleImgSrc } from '#app/utils/misc.tsx'
-import { useUser } from '#app/utils/user.ts'
 import siteLogo from '~/assets/png/epic-news-logo-green-dark.png'
 import { prisma } from '~/utils/db.server.ts'
 
@@ -43,7 +42,7 @@ const ArticleNotFound = () => {
 
 export default function SingleArticlePage() {
 	const { singleArticle } = useLoaderData<typeof loader>()
-		const user = useUser()
+
 
 	if (!singleArticle) return <ArticleNotFound />
 
@@ -57,16 +56,18 @@ export default function SingleArticlePage() {
 			? words.slice(0, wordLimit).join(' ') + '...'
 			: content
 	}
+	
 
 		return singleArticle ? (
-		<div className="my-10 px-4 md:px-8 lg:px-16">
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+		<div className="my-5 px-4 md:px-8 lg:px-16">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch ">
+			
 			
 				{/* Article content */}
-				<div className="bg-accent p-6 md:p-20 lg:p-20 lg:py-70 rounded-lg ">
+				<div className="bg-accent p-6 md:p-10 lg:p-20 lg:py-70 rounded-lg ">
 					<div className="flex flex-wrap gap-4 mb-4 ">
 						<div className='bg-secondary px-3 py-1 rounded'>
-							<Link prefetch="intent" to={`/users/${user.username}`}>
+							<Link prefetch="intent" to={`/users/${singleArticle.owner.name}/articles`.toLowerCase()}>
 								<p className="text-h5 cursor-pointer hover:underline underline-offset-4">{singleArticle.owner?.name}</p>
 							</Link>
 						</div>
@@ -79,7 +80,7 @@ export default function SingleArticlePage() {
 						</div>
 					</div>
 
-					<h2 className="text-h2 mb-6">
+					<h2 className="text-h2 mb-6 underline decoration-secondary  underline-offset-4">
 					{singleArticle.title}
 					</h2>
 
@@ -87,28 +88,29 @@ export default function SingleArticlePage() {
 					{truncateWords(singleArticle.content, 40)}
 					</p>
 				</div>
+	
 
 				{/* Image column */}
-				<div className="h-full">
+				<div className="flex justify-center items-center">
 					<img
 					src={imageSrc}
 					alt={singleArticle.title}
-					className="w-full h-full object-cover rounded-lg"
+					className=" h-full object-cover rounded-lg"
 					/>
 				</div>
-
+				{/* end of grid */}
 			</div>
-			<div className="bg-accent p-10 rounded-lg mt-8">
-				
+
+			{/* Full content section */}
+			<div className="bg-accent p-10 rounded-lg mt-5">
 				<div className='flex text-3xl font-semibold'>
 					{singleArticle.title}
 				</div>
-					{/* border	 */}
-					<div className="border-b-2 mt-5 mx-auto"></div>
+				<div className="border-b-2 mx-auto mt-4"></div>
 					{/* full content */}
-					<div className='mt-5'>
-						{singleArticle.content}
-					</div>
+				<div className='mt-5'>
+					<p className="whitespace-pre-line">{singleArticle.content}</p>	
+				</div>
 			</div>
 		</div>
 		) : (
