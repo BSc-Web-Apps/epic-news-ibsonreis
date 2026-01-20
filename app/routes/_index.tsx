@@ -21,6 +21,7 @@ import { prisma } from '~/utils/db.server.ts'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 export async function loader() {
+	
 	const techArticles = await prisma.article.findMany({
 		where: {
 			isPublished: true,
@@ -88,10 +89,10 @@ export default function Index() {
 			>
 				<div className="bg-secondary/40 mx-auto flex w-fit flex-1 flex-col justify-between gap-16 px-20 py-16 backdrop-blur-sm">
 					<p className="text-secondary-foreground text-center text-4xl font-extrabold">
-						The latest tech news in one place
+						The latest news, brought by you, all in one place!
 					</p>
 					<Button size="wide" className="bg-ring">
-						<Link to="/signup">Join Today!</Link>
+						<Link to="/signup">Join to add your thoughts!</Link>
 					</Button>
 				</div>
 			</ParallaxBackground>
