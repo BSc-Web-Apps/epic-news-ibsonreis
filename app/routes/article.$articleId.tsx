@@ -63,7 +63,8 @@ export default function SingleArticlePage() {
 			
 			
 				{/* Article content */}
-				<div className="bg-accent p-6 md:p-10 lg:p-20 lg:py-70 rounded-lg ">
+				<div className="bg-accent p-6 md:p-10 lg:py-50 rounded-lg lg:h-200 flex justify-center items-center flex-col">
+					<div>
 					<div className="flex flex-wrap gap-4 mb-4 ">
 						<div className='bg-secondary px-3 py-1 rounded'>
 							<Link prefetch="intent" to={`/users/${singleArticle.owner.username}/articles`.toLowerCase()}>
@@ -86,6 +87,7 @@ export default function SingleArticlePage() {
 					<p className="leading-relaxed mt-10">
 					{truncateWords(singleArticle.content, 40)}
 					</p>
+					</div>
 				</div>
 	
 
