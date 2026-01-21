@@ -21,6 +21,7 @@ import { EmailSchema } from '#app/utils/user-validation.ts'
 import { type Route } from './+types/signup.ts'
 import { prepareVerification } from './verify.server.ts'
 
+
 export const handle: SEOHandle = {
 	getSitemapEntries: () => null,
 }

@@ -13,7 +13,7 @@ const HeroCallToAction = ({
 }: HeroCallToActionProps) => {
 	return (
 		<div
-			className={`md:mx-auto md:flex md:max-w-6xl ${
+			className={`md:mx-auto md:flex md:max-w-9xl ${
 				imageRight && 'md:flex-row-reverse'
 			}`}
 		>
@@ -24,9 +24,14 @@ const HeroCallToAction = ({
 					className="absolute min-h-full min-w-full object-cover object-center"
 				/>
 			</div>
-			<div className="relative flex h-96 items-center justify-center md:h-[32rem] md:w-1/2">
+			<div
+				className={`relative flex h-96 items-center justify-center md:h-[32rem] md:w-1/2 ${
+					hasBackgroundColour && 'bg-accent light:shadow'
+				}`}
+			>
 				{children}
 			</div>
+			<div></div>
 		</div>
 	)
 }

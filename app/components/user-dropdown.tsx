@@ -19,27 +19,29 @@ export function UserDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button asChild variant="secondary">
-					<Link
-						to={`/users/${user.username}`}
-						// this is for progressive enhancement
-						onClick={(e) => e.preventDefault()}
-						className="flex items-center gap-2"
-						aria-label="User menu"
-					>
-						<Img
-							className="size-8 rounded-full object-cover"
-							alt={user.name ?? user.username}
-							src={getUserImgSrc(user.image?.objectKey)}
-							width={256}
-							height={256}
-							aria-hidden="true"
-						/>
-						<span className="text-body-sm font-bold">
-							{user.name ?? user.username}
-						</span>
-					</Link>
-				</Button>
+				<div className="mt-4">
+					<Button asChild variant="outline" size="lg" className="w-45">
+						<Link
+							to={`/users/${user.username}`}
+							// this is for progressive enhancement
+							onClick={(e) => e.preventDefault()}
+							className="flex items-center gap-2"
+							aria-label="User menu"
+						>
+							<Img
+								className="size-8 rounded-full object-cover"
+								alt={user.name ?? user.username}
+								src={getUserImgSrc(user.image?.objectKey)}
+								width={256}
+								height={256}
+								aria-hidden="true"
+							/>
+							<span className="text-body-sm font-bold">
+								{user.name ?? user.username}
+							</span>
+						</Link>
+					</Button>
+				</div>
 			</DropdownMenuTrigger>
 			<DropdownMenuPortal>
 				<DropdownMenuContent sideOffset={8} align="end">

@@ -50,7 +50,9 @@ export function Field({
 	const errorId = errors?.length ? `${id}-error` : undefined
 	return (
 		<div className={className}>
-			<Label htmlFor={id} {...labelProps} />
+			<div className="pb-3">
+				<Label htmlFor={id} {...labelProps} />
+			</div>
 			<Input
 				id={id}
 				aria-invalid={errorId ? true : undefined}
@@ -124,7 +126,9 @@ export function TextareaField({
 	const errorId = errors?.length ? `${id}-error` : undefined
 	return (
 		<div className={className}>
-			<Label htmlFor={id} {...labelProps} />
+			<div className="pb-3">
+				<Label htmlFor={id} {...labelProps} />
+			</div>
 			<Textarea
 				id={id}
 				aria-invalid={errorId ? true : undefined}

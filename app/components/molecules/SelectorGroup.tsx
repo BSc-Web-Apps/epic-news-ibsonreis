@@ -23,9 +23,9 @@ export default function SelectorGroup({
 			>
 				{options.map((option) => (
 					<RadioGroup.Item
-						className={`flex w-full rounded-md border p-4 ${
+						className={`mr-2 flex-row rounded-md border p-4 ${
 							option.value === selectedValue
-								? 'border-sky-500 ring-1 ring-sky-500 ring-inset'
+								? 'border-secondary ring-1 ring-gray-200 ring-inset'
 								: 'border-gray-500'
 						}`}
 						key={option.value}
